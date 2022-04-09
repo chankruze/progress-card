@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ProgressCard from "./component/ProgressCard";
 
 function App() {
+  const [completed, setCompleted] = useState(1);
+  const [total, setTotal] = useState(4);
+
+  const randomize = () => {
+    const newTotal = Math.floor(Math.random() * 100) + 1;
+    const newCompleted = Math.floor(Math.random() * newTotal);
+    setCompleted(newCompleted);
+    setTotal(newTotal);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="h-screen flex justify-center items-center bg-slate-900">
+      <div className="flex flex-col gap-2 justify-center items-center w-[400px]">
+        <ProgressCard tasks={{ completed, total }} />
+        <button
+          className="w-full uppercase border-0 px-3 py-2 outline-none 
+          font-roboto font-medium text-white rounded-md 
+          bg-blue-500 hover:bg-blue-600"
+          onClick={randomize}
         >
-          Learn React
-        </a>
-      </header>
+          randomize
+        </button>
+      </div>
     </div>
   );
 }
