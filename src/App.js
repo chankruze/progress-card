@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="h-screen flex justify-center items-center bg-slate-900">
-      <div className="flex flex-col gap-2 justify-center items-center w-[400px]">
+      <div className="p-2 flex flex-col gap-2 justify-center items-center w-full sm:w-[420px]">
         <ProgressCard tasks={{ completed, total }} />
         <button
           className="w-full uppercase border-0 px-3 py-2 outline-none 
