@@ -9,7 +9,7 @@ import ProgressRing from "./ProgressRing";
 
 function ProgressCard({ tasks }) {
   const { total, completed } = tasks;
-  const progress = parseInt((completed / total) * 100);
+  const progress = Math.ceil((completed / total) * 100);
 
   return (
     <div className="flex bg-white p-2 rounded-md w-full h-[180px]">
